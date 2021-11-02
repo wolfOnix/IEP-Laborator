@@ -3,8 +3,6 @@
 #include <iostream>
 //#include "device.hpp"
 
-//using namespace device;
-
 namespace device {
 
     class Device {
@@ -18,11 +16,21 @@ namespace device {
 
         public:
 
-        /*Device::*/Device() {
+        Device() {
             std::cout << " + Empty Device created\n";
         }
 
-        /*Device::*/Device(const std::string &manufacturer, const std::string &model, float displaySize, bool mobile) {
+        Device(const std::string &_manufacturer, const std::string &_model, float _displaySize, bool _mobile) :
+            manufacturer(_manufacturer),
+            model(_model),
+            displaySize(_displaySize),
+            mobile(_mobile) {
+            std::cout << " + Device created\n";
+        }
+
+        /* OLD VERSION FOR ABOVE ->
+        
+        Device(const std::string &manufacturer, const std::string &model, float displaySize, bool mobile) {
             this->manufacturer = manufacturer;
             this->model = model;
             this->displaySize = displaySize;
@@ -30,7 +38,9 @@ namespace device {
             std::cout << " + Device created\n";
         }
 
-        /*Device::*/Device(const Device &device) {
+        <- */
+
+        Device(const Device &device) {
             this->manufacturer = device.manufacturer;
             this->model = device.model;
             this->displaySize = device.displaySize;
@@ -38,12 +48,12 @@ namespace device {
             std::cout << " + Device copied\n";
         }
 
-        /*Device::*/~Device() {
+        ~Device() {
             std::cout << " - Device destructred\n";
         }
 
-        void /*Device::*/printInfo() {
-            std::cout << "Manufacturer: " << this->manufacturer << " - Model: " << this->model << " - Display size: " << this->displaySize << " - Mobile: " << this->mobile << "\n";
+        void printInfo() {
+            std::cout << "Device:\n\tManufacturer: " << this->manufacturer << "\n\tModel: " << this->model << "\n\tDisplay size: " << this->displaySize << "\n\tMobile: " << this->mobile << "\n";
         }
 
     };

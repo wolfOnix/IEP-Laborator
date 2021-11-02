@@ -1,6 +1,6 @@
 #pragma once
 
-namespace device {
+//namespace device {
     
     class Device {
 
@@ -19,4 +19,4 @@ namespace device {
 
     };
 
-}
+//}
