@@ -17,9 +17,14 @@ namespace device {
         public:
 
         // Empty constructor
+        /*
         Device() {
             std::cout << "\033[36m _ Empty Device created: \033[35m" << this << "\033[0m\n";
         }
+        */
+
+        // Disabled empty constructor
+        Device() = delete;
 
         // Constructor
         Device(const std::string &_manufacturer, const std::string &_model, float _displaySize, bool _mobile) :
