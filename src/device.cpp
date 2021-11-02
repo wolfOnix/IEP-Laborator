@@ -18,7 +18,7 @@ namespace device {
 
         // Empty constructor
         Device() {
-            std::cout << " + Empty Device created\n";
+            std::cout << " _ Empty Device created\n";
         }
 
         // Constructor
@@ -30,7 +30,7 @@ namespace device {
             std::cout << " + Device created\n";
         }
 
-        /* OLD VERSION FOR THE ABOVE ->
+        /* ALTERNATIVE FOR THE ABOVE ->
         
         Device(const std::string &manufacturer, const std::string &model, float displaySize, bool mobile) {
             this->manufacturer = manufacturer;
@@ -48,12 +48,21 @@ namespace device {
             model = device.model;
             displaySize = device.displaySize;
             mobile = device.mobile;
-            std::cout << " + Device copied\n";
+            std::cout << " + Device created via copy constructor\n";
+        }
+
+        // Copy assignment operator
+        Device &operator = (const Device &device) {
+            manufacturer = device.manufacturer;
+            model = device.model;
+            displaySize = device.displaySize;
+            mobile = device.mobile;
+            std::cout << " = Device overwritten via copy assignment operator\n";
         }
 
         // Destructor
         ~Device() {
-            std::cout << " - Device destructred\n";
+            std::cout << " ~ Device destructred\n";
         }
 
         void setManufacturer(const std::string &_manufacturer) {
@@ -88,7 +97,7 @@ namespace device {
             return mobile;
         }
 
-        void printInfo() {
+        void printObject() {
             std::cout << "Device:\n\tManufacturer: " << this->manufacturer << "\n\tModel: " << this->model << "\n\tDisplay size: " << this->displaySize << "\n\tMobile: " << this->mobile << "\n";
         }
 
