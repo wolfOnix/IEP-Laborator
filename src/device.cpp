@@ -16,10 +16,12 @@ namespace device {
 
         public:
 
+        // Empty constructor
         Device() {
             std::cout << " + Empty Device created\n";
         }
 
+        // Constructor
         Device(const std::string &_manufacturer, const std::string &_model, float _displaySize, bool _mobile) :
             manufacturer(_manufacturer),
             model(_model),
@@ -28,7 +30,7 @@ namespace device {
             std::cout << " + Device created\n";
         }
 
-        /* OLD VERSION FOR ABOVE ->
+        /* OLD VERSION FOR THE ABOVE ->
         
         Device(const std::string &manufacturer, const std::string &model, float displaySize, bool mobile) {
             this->manufacturer = manufacturer;
@@ -40,16 +42,50 @@ namespace device {
 
         <- */
 
+        // Copy constructor
         Device(const Device &device) {
-            this->manufacturer = device.manufacturer;
-            this->model = device.model;
-            this->displaySize = device.displaySize;
-            this->mobile = device.mobile;
+            manufacturer = device.manufacturer;
+            model = device.model;
+            displaySize = device.displaySize;
+            mobile = device.mobile;
             std::cout << " + Device copied\n";
         }
 
+        // Destructor
         ~Device() {
             std::cout << " - Device destructred\n";
+        }
+
+        void setManufacturer(const std::string &_manufacturer) {
+            manufacturer = _manufacturer;
+        }
+
+        const std::string &getManufacturer() {
+            return manufacturer;
+        }
+
+        void setModel(const std::string &_model) {
+            model = _model;
+        }
+
+        const std::string &getModel() {
+            return model;
+        }
+
+        void setDisplaySize(float _displaySize) {
+            displaySize = _displaySize;
+        }
+
+        float getDisplaySize() {
+            return displaySize;
+        }
+
+        void setMobile(bool _mobile) {
+            mobile = _mobile;
+        }
+
+        bool getMobile() {
+            return mobile;
         }
 
         void printInfo() {
