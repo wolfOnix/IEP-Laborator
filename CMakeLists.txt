@@ -21,6 +21,7 @@ endif()
 # Executable defining
 add_executable(${PROJECT_NAME}
     src/main.cpp
-    src/device.hpp
-    src/device.cpp)
+    src/smartdevice.cpp
+    src/device.cpp
+    src/device.hpp)
 

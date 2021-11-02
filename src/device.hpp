@@ -1,9 +1,6 @@
-#ifndef DEVICE_H
-#define DEVICE_H
+#pragma once
 
-#include <iostream>
-
-namespace Device {
+namespace device {
     
     class Device {
 
@@ -23,5 +20,3 @@ namespace Device {
     };
 
 }
-
-#endif

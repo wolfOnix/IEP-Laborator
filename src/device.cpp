@@ -1,5 +1,9 @@
+#pragma once
+
 #include <iostream>
-//#include "device.cpp"
+//#include "device.hpp"
+
+//using namespace device;
 
 namespace device {
 
@@ -14,11 +18,11 @@ namespace device {
 
         public:
 
-        Device() {
+        /*Device::*/Device() {
             std::cout << " + Empty Device created\n";
         }
 
-        Device(const std::string &manufacturer, const std::string &model, float displaySize, bool mobile) {
+        /*Device::*/Device(const std::string &manufacturer, const std::string &model, float displaySize, bool mobile) {
             this->manufacturer = manufacturer;
             this->model = model;
             this->displaySize = displaySize;
@@ -26,7 +30,7 @@ namespace device {
             std::cout << " + Device created\n";
         }
 
-        Device(const Device &device) {
+        /*Device::*/Device(const Device &device) {
             this->manufacturer = device.manufacturer;
             this->model = device.model;
             this->displaySize = device.displaySize;
@@ -34,11 +38,11 @@ namespace device {
             std::cout << " + Device copied\n";
         }
 
-        ~Device() {
+        /*Device::*/~Device() {
             std::cout << " - Device destructred\n";
         }
 
-        void printInfo() {
+        void /*Device::*/printInfo() {
             std::cout << "Manufacturer: " << this->manufacturer << " - Model: " << this->model << " - Display size: " << this->displaySize << " - Mobile: " << this->mobile << "\n";
         }
 

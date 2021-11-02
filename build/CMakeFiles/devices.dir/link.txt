@@ -1,1 +1,1 @@
-/usr/bin/c++    -rdynamic CMakeFiles/devices.dir/src/main.cpp.o CMakeFiles/devices.dir/src/device.cpp.o  -o devices 
+/usr/bin/c++    -rdynamic CMakeFiles/devices.dir/src/main.cpp.o CMakeFiles/devices.dir/src/smartdevice.cpp.o CMakeFiles/devices.dir/src/device.cpp.o  -o devices 

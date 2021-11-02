@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/devices.dir/src/main.cpp.o"
+  "CMakeFiles/devices.dir/src/smartdevice.cpp.o"
   "CMakeFiles/devices.dir/src/device.cpp.o"
   "devices.pdb"
   "devices"

@@ -177,6 +177,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/devices.dir/build.make CMakeFiles/devices.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/smartdevice.o: src/smartdevice.cpp.o
+
+.PHONY : src/smartdevice.o
+
+# target to build an object file
+src/smartdevice.cpp.o:
+	$(MAKE) -f CMakeFiles/devices.dir/build.make CMakeFiles/devices.dir/src/smartdevice.cpp.o
+.PHONY : src/smartdevice.cpp.o
+
+src/smartdevice.i: src/smartdevice.cpp.i
+
+.PHONY : src/smartdevice.i
+
+# target to preprocess a source file
+src/smartdevice.cpp.i:
+	$(MAKE) -f CMakeFiles/devices.dir/build.make CMakeFiles/devices.dir/src/smartdevice.cpp.i
+.PHONY : src/smartdevice.cpp.i
+
+src/smartdevice.s: src/smartdevice.cpp.s
+
+.PHONY : src/smartdevice.s
+
+# target to generate assembly for a file
+src/smartdevice.cpp.s:
+	$(MAKE) -f CMakeFiles/devices.dir/build.make CMakeFiles/devices.dir/src/smartdevice.cpp.s
+.PHONY : src/smartdevice.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +219,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/smartdevice.o"
+	@echo "... src/smartdevice.i"
+	@echo "... src/smartdevice.s"
 .PHONY : help
 
 
