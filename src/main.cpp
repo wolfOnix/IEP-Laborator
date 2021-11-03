@@ -29,7 +29,7 @@ int main() {
     */
 
     /* ^ */ Device phone1(tv2);
-    phone1 = tv1;
+    phone1 = Device(tv1);
 
     phone1.setManufacturer("Apple");
     phone1.setModel("iPhone 13 Pro Max");
