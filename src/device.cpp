@@ -17,6 +17,7 @@ namespace device {
 
         // Empty constructor
         Device() {
+            displaySize = 0;
             std::cout << "\033[36m _ Empty Device created: \033[35m" << this << "\033[0m\n";
         }
 
@@ -40,6 +41,10 @@ namespace device {
 
         // Copy assignment operator
         Device &operator = (const Device &device) {
+            if (this == &device) {
+                std::cout << "\033[36m ! SAME OBJECT for copy assignment operator: \033[35m" << this << "\033[0m\n";
+                return *this;
+            }
             manufacturer = device.manufacturer;
             model = device.model;
             displaySize = device.displaySize;
@@ -50,11 +55,15 @@ namespace device {
 
         // Copy assignment operator
         Device &operator += (const Device &device) {
+            if (this == &device) {
+                std::cout << "\033[36m ! SAME OBJECT for += copy assignment operator: \033[35m" << this << "\033[0m\n";
+                return *this;
+            }
             manufacturer = device.manufacturer;
             model = device.model;
             displaySize = displaySize + device.displaySize;
             mobile = device.mobile;
-            std::cout << "\033[36m = Device overwritten via += copy assignment operator +=: \033[35m" << this << "\033[0m\n";
+            std::cout << "\033[36m = Device overwritten via += copy assignment operator: \033[35m" << this << "\033[0m\n";
             return *this;
         }
 
