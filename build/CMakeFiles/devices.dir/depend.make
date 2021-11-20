@@ -5,6 +5,7 @@ CMakeFiles/devices.dir/src/device.cpp.o: ../src/device.cpp
 
 CMakeFiles/devices.dir/src/main.cpp.o: ../src/device.cpp
 CMakeFiles/devices.dir/src/main.cpp.o: ../src/main.cpp
+CMakeFiles/devices.dir/src/main.cpp.o: ../src/smartdevice.cpp
 
 CMakeFiles/devices.dir/src/smartdevice.cpp.o: ../src/device.cpp
 CMakeFiles/devices.dir/src/smartdevice.cpp.o: ../src/smartdevice.cpp

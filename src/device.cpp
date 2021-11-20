@@ -53,7 +53,7 @@ namespace device {
             return *this;
         }
 
-        // Copy assignment operator
+        // += Copy assignment operator
         Device &operator += (const Device &device) {
             if (this == &device) {
                 std::cout << "\033[36m ! SAME OBJECT for += copy assignment operator: \033[35m" << this << "\033[0m\n";

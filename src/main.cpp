@@ -1,7 +1,8 @@
 #include <iostream>
-#include "device.cpp"
+#include "smartdevice.cpp"
 
 using namespace device;
+using namespace smartdevice;
 
 int main() {
     Device tv1 = Device("Samsung", "DX7200", 45, false);
@@ -30,9 +31,7 @@ int main() {
 
     std::cout << "phone1 - "; phone1.printObject();
 
-    Device phone2 = phone1;
-    phone2.setModel("iPhone 11 Pro");
-    phone2.setDisplaySize(5.85);
+    SmartDevice phone2 = SmartDevice("Samsung", "Galaxy S9", 6.2, true, "Mobile phone", true);
     std::cout << "phone2 - "; phone2.printObject();
 
     phone2 = phone2;
