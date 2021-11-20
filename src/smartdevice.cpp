@@ -26,6 +26,8 @@ namespace smartdevice {
 
         // Copy constructor
         SmartDevice(const SmartDevice &smartdevice) : Device(smartdevice) {
+            type = smartdevice.type;
+            wifi = smartdevice.wifi;
             std::cout << "\033[36m + SmartDevice created via copy constructor: \033[35m" << this << "\033[0m\n";
         }
 
@@ -41,6 +43,7 @@ namespace smartdevice {
         }
 
         void printObject() {
+            std::cout << "Smart";
             Device::printObject();
             std::cout << "\tType: " << this->type
                 << "\n\tWifi: " << this->wifi << "\n";
