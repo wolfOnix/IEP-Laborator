@@ -1,7 +1,6 @@
 #pragma once
 
 #include <iostream>
-//#include "device.hpp"
 
 namespace device {
 
@@ -17,14 +16,9 @@ namespace device {
         public:
 
         // Empty constructor
-        /*
         Device() {
             std::cout << "\033[36m _ Empty Device created: \033[35m" << this << "\033[0m\n";
         }
-        */
-
-        // Disabled empty constructor
-        Device() = delete;
 
         // Constructor
         Device(const std::string &_manufacturer, const std::string &_model, float _displaySize, bool _mobile) :
@@ -34,18 +28,6 @@ namespace device {
             mobile(_mobile) {
             std::cout << "\033[36m + Device created: \033[35m" << this << "\033[0m\n";
         }
-
-        /* ALTERNATIVE FOR THE ABOVE ->
-        
-        Device(const std::string &manufacturer, const std::string &model, float displaySize, bool mobile) {
-            this->manufacturer = manufacturer;
-            this->model = model;
-            this->displaySize = displaySize;
-            this->mobile = mobile;
-            std::cout << " + Device created\n";
-        }
-
-        <- */
 
         // Copy constructor
         Device(const Device &device) {
@@ -62,7 +44,18 @@ namespace device {
             model = device.model;
             displaySize = device.displaySize;
             mobile = device.mobile;
-            std::cout << "\033[36m = Device overwritten via copy assignment operator: \033[35m" << this << "\033[0m\n";
+            std::cout << "\033[36m = Device overwritten via standard copy assignment operator: \033[35m" << this << "\033[0m\n";
+            return *this;
+        }
+
+        // Copy assignment operator
+        Device &operator += (const Device &device) {
+            manufacturer = device.manufacturer;
+            model = device.model;
+            displaySize = displaySize + device.displaySize;
+            mobile = device.mobile;
+            std::cout << "\033[36m = Device overwritten via += copy assignment operator +=: \033[35m" << this << "\033[0m\n";
+            return *this;
         }
 
         // Destructor
@@ -103,7 +96,7 @@ namespace device {
         }
 
         void printObject() {
-            std::cout << "Device \033[35m" << this << "\033[0m:\n\tManufacturer: " << this->manufacturer << "\n\tModel: " << this->model << "\n\tDisplay size: " << this->displaySize << "\n\tMobile: " << this->mobile << "\n";
+            std::cout << "Device " << this << ":\n\tManufacturer: " << this->manufacturer << "\n\tModel: " << this->model << "\n\tDisplay size: " << this->displaySize << "\n\tMobile: " << this->mobile << "\n";
         }
 
     };

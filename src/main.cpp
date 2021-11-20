@@ -1,35 +1,29 @@
 #include <iostream>
 #include "device.cpp"
-//#include "smartdevice.cpp"
 
 using namespace device;
-//using namespace smart_device;
 
 int main() {
     Device tv1 = Device("Samsung", "DX7200", 45, false);
 
-    std::cout << "tv1 - ";
-    tv1.printObject();
+    std::cout << "tv1 - "; tv1.printObject();
 
-    /*
-    Device tv2; // NOT POSSIBLE DUE TO DISABLED EMPTY CONSTRUCTOR
+    Device tv2;
     tv2 = Device(tv1);
-    */
-
-    /* ^ */ Device tv2 = Device(tv1);
-
-    std::cout << "tv2 - "; tv2.printObject();
     tv2.setModel("WR8433");
+
     std::cout << "tv2 - "; tv2.printObject();
-    std::cout << "tv1 model is: " << tv1.getModel() << "\n";
 
-    /*
-    Device phone1; // NOT POSSIBLE DUE TO DISABLED EMPTY CONSTRUCTOR
-    phone1 = tv2;
-    */
+    Device tv3;
 
-    /* ^ */ Device phone1(tv2);
-    phone1 = Device(tv1);
+    tv3 += Device("", "", 20, false) += tv2 += tv1;
+
+    std::cout << "Display sizes:\n\ttv1: " << tv1.getDisplaySize()
+        << "\n\ttv2: " << tv2.getDisplaySize()
+        << "\n\ttv3: " << tv3.getDisplaySize() << "\n";
+
+    Device phone1(tv2);
+    phone1 = tv1;
 
     phone1.setManufacturer("Apple");
     phone1.setModel("iPhone 13 Pro Max");
@@ -37,7 +31,7 @@ int main() {
     phone1.setMobile(true);
     std::cout << "phone1 - "; phone1.printObject();
 
-    Device phone2 = Device(phone1);
+    Device phone2 = phone1;
     phone2.setModel("iPhone 11 Pro");
     phone2.setDisplaySize(5.85);
     std::cout << "phone2 - "; phone2.printObject();
