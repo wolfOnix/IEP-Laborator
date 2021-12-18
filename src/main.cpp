@@ -1,39 +1,42 @@
 #include <iostream>
+#include <memory>
 #include "smartdevice.cpp"
 
 using namespace device;
 using namespace smartdevice;
 
+Device *createDevice(const std::string &manufacturer, const std::string &model, float displaySize, bool mobile) { // Create an instance of the Device class
+    std::cout << "Create instance:\n";
+    return (new Device(manufacturer, model, displaySize, mobile));
+}
+
+void sharedPointers() {
+
+    // *p1
+    std::shared_ptr<Device> pDevice1(createDevice("Samsung", "DX7200", 45, false));
+    std::cout << "*p1: "; pDevice1->printObject();
+    pDevice1->setModel("JE33"); std::cout << " - *p1 model modified\n";
+    std::cout << "*p1: "; pDevice1->printObject();
+
+    // *p2
+    std::shared_ptr<Device> pDevice2(pDevice1); std::cout << "*p1 copied to *p2\n";
+    std::cout << "*p2: "; pDevice2->printObject();
+    std::cout << "Shared pointer counter (*p1): " << pDevice1.use_count() << '\n'; // get the number of shared_ptr objects referring to the same managed object
+    std::cout << "Shared pointer counter (*p2): " << pDevice2.use_count() << '\n';
+
+    // *p3
+    std::shared_ptr<Device> pDevice3 = move(pDevice1); std::cout << "Ownership transfered from *p1 to *p3\n";
+    std::cout << "Shared pointer counter (*p1): " << pDevice1.use_count() << '\n';
+    std::cout << "Shared pointer counter (*p2): " << pDevice2.use_count() << '\n';
+    std::cout << "Shared pointer counter (*p3): " << pDevice3.use_count() << '\n';
+
+    pDevice2->setManufacturer("Sony"); std::cout << " - *p2 manufacturer modified\n";
+    // std::cout << "*p1: "; pDevice1->printObject(); // won't work, as pDevice1 is null
+    std::cout << "*p2: "; pDevice2->printObject();
+    std::cout << "*p3: "; pDevice3->printObject();
+    
+}
+
 int main() {
-    Device tv1 = Device("Samsung", "DX7200", 45, false);
-
-    std::cout << "tv1 - "; tv1.printObject();
-
-    Device tv2;
-    tv2 = Device(tv1);
-    tv2.setModel("WR8433");
-
-    std::cout << "tv2 - "; tv2.printObject();
-
-    Device tv3;
-
-    tv3 += Device("LG", "X224", 20, false) += tv2 += tv1;
-
-    std::cout << "Display sizes:\n\ttv1: " << tv1.getDisplaySize()
-        << "\n\ttv2: " << tv2.getDisplaySize()
-        << "\n\ttv3: " << tv3.getDisplaySize() << "\n";
-
-    Device phone1(tv2);
-    phone1 = tv1;
-    phone1.setDisplaySize(2.1);
-    phone1 += phone1 += Device("Sony Ericsson", "W595", 0.1, true);
-    std::cout << "phone1 - "; phone1.printObject();
-
-    SmartDevice phone2 = SmartDevice("Samsung", "Galaxy S9", 6.2, true, "Smartphone", true);
-    std::cout << "phone2 - "; phone2.printObject();
-    phone2 = phone2;
-
-    SmartDevice phone3 = phone2;
-    phone3.setModel("Galaxy S10");
-    std::cout << "phone3 - "; phone3.printObject();
+    sharedPointers();
 }
