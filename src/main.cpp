@@ -1,12 +1,10 @@
 #include <iostream>
 #include <memory>
 #include "deviceResource.cpp"
-// #include "smartdevice.cpp"
 
 using namespace device;
 using namespace device_resource;
 using namespace locker;
-// using namespace smartdevice;
 
 Device *createDevice(const std::string &manufacturer, const std::string &model, float displaySize, bool mobile) { // Create an instance of the Device class
     std::cout << "Create instance:\n";
