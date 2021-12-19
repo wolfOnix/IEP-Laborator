@@ -10,17 +10,19 @@
 iostream
 -
 
+/mnt/c/Users/rober/Google Drive/Dokumente/Hochschule/Anul IV/IEP/Lab/TemaLucrarea4/src/deviceResource.cpp
+iostream
+-
+memory
+-
+device.cpp
+/mnt/c/Users/rober/Google Drive/Dokumente/Hochschule/Anul IV/IEP/Lab/TemaLucrarea4/src/device.cpp
+
 /mnt/c/Users/rober/Google Drive/Dokumente/Hochschule/Anul IV/IEP/Lab/TemaLucrarea4/src/main.cpp
 iostream
 -
 memory
 -
-smartdevice.cpp
-/mnt/c/Users/rober/Google Drive/Dokumente/Hochschule/Anul IV/IEP/Lab/TemaLucrarea4/src/smartdevice.cpp
-
-/mnt/c/Users/rober/Google Drive/Dokumente/Hochschule/Anul IV/IEP/Lab/TemaLucrarea4/src/smartdevice.cpp
-iostream
--
-device.cpp
-/mnt/c/Users/rober/Google Drive/Dokumente/Hochschule/Anul IV/IEP/Lab/TemaLucrarea4/src/device.cpp
+deviceResource.cpp
+/mnt/c/Users/rober/Google Drive/Dokumente/Hochschule/Anul IV/IEP/Lab/TemaLucrarea4/src/deviceResource.cpp
 
