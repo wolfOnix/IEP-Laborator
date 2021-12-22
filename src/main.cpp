@@ -12,6 +12,7 @@ Device *createDevice(const std::string &manufacturer, const std::string &model, 
 }
 
 void printCount(std::shared_ptr<Device> &sp, int index) {
+    // Print the number of shared_ptr objects referring to the same managed object
     std::cout << "Shared pointer counter (*p" << index << "): " << sp.use_count() << '\n';
 }
 
@@ -26,12 +27,13 @@ void sharedPointers() {
     // *p2
     std::shared_ptr<Device> pDevice2(pDevice1); std::cout << "*p1 copied to *p2\n";
     std::cout << "*p2: "; pDevice2->printObject();
-    //std::cout << "Shared pointer counter (*p1): " << pDevice1.use_count() << '\n'; // get the number of shared_ptr objects referring to the same managed object
     printCount(pDevice1, 1);
     printCount(pDevice2, 2);
 
     // *p3
     std::shared_ptr<Device> pDevice3 = move(pDevice1); std::cout << "Ownership transfered from *p1 to *p3\n";
+        // Transfering ownership between shared pointers is a less time/ resource consuming procedure than copying them,
+        // because copying them would result in increasing or decreasing the counter (use_count).
     printCount(pDevice1, 1);
     printCount(pDevice2, 2);
     printCount(pDevice3, 3);
